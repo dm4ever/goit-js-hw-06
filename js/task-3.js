@@ -1,4 +1,27 @@
+class StringBuilder {
+    #value;
 
+    constructor(initialValue) {
+        this.#value = initialValue;
+    }
+    
+    getValue() {
+        return this.#value;
+    }
+
+    padEnd(str) {
+        this.#value = this.#value.padEnd(this.#value.length + str.length, str);
+    }
+
+    padStart(str) {
+        this.#value = this.#value.padStart(this.#value.length + str.length, str);
+     }
+
+    padBoth(str) {
+        const padStartValue = this.#value.padStart(this.#value.length + str.length, str);
+        this.#value = padStartValue.padEnd(padStartValue.length + str.length, str);  
+    }   
+}    
 
 const builder = new StringBuilder(".");
 console.log(builder.getValue()); // "."
